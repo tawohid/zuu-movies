@@ -1,10 +1,11 @@
 import React from 'react';
-import tmdb from '../tmdb'
+import tmdb from '../tmdb';
+import DocumentTitle from 'react-document-title';
 import StarRatingComponent from 'react-star-rating-component';
 
-import Header from './Header'
-import CastArray from './CastArray'
-import MovieArray from './MovieArray'
+import Header from './Header';
+import CastArray from './CastArray';
+import MovieArray from './MovieArray';
 
 
 class MoviePage extends React.Component {
@@ -12,12 +13,26 @@ class MoviePage extends React.Component {
         super(props)
 
         this.state = {movie : {}, id: "", cast: [], similar: []}
-        tmdb.call("/movie/" + this.props.params.id, {"append_to_response" : "videos,recommendations,credits"}, data => this.setState({movie: data, id : data.imdb_id, cast: data.credits.cast, similar: data.recommendations.results}));
+        this.getData(this.props.params.id);
     }
 
     componentWillReceiveProps(nextProps) {
         this.setState({movie : {}, id: "", cast: [], similar: []})
-        tmdb.call("/movie/" + nextProps.params.id, {"append_to_response" : "videos,recommendations,credits"}, data => this.setState({movie: data, id : data.imdb_id, cast: data.credits.cast, similar: data.recommendations.results}))
+        this.getData(nextProps.params.id)
+    }
+
+
+    getData(id) {
+        tmdb.call("/movie/" + id, {"append_to_response" : "videos,recommendations,credits"}, data => {
+            data.recommendations.results.splice(6)
+            data.credits.cast.splice(6)
+
+            this.setState({
+                movie: data,
+                id : data.imdb_id,
+                cast: data.credits.cast,
+                similar: data.recommendations.results})
+        })
     }
 
 
@@ -30,22 +45,21 @@ class MoviePage extends React.Component {
 
 
     render() {
-       this.state.similar.splice(6)
-       this.state.cast.splice(6)
-       const movie = this.state.movie
-       const id = this.state.id.replace("tt", "")
-       const rating = movie.vote_average || 0
-
-
+       const movie = this.state.movie;
+       const title = `${(movie.title) || "Movies"} | ZUU`
 
        return (
+           <DocumentTitle title={title}>
            <div className="moviepage">
                <Header />
                <img className="backdrop" src={"http://image.tmdb.org/t/p/w1280" + (movie.backdrop_path || "/ylEALgMyJu1JLzSQOIaGGNctHS0.jpg") } alt="no"/>
-               <img className="moiveposter" src={"http://image.tmdb.org/t/p/w185" + (movie.poster_path || "/AdoSOsacA5MquZruWeBZVgQ7fSm.jpg") } alt="no"/>
-               <div className="playbutton">
-                   <p className="playnow">Play Now</p>
-                   <i className="icon-play"></i>
+               <div className="backdropbg"></div>
+               <div className="playposter">
+                   <img className="moiveposter" src={"http://image.tmdb.org/t/p/w185" + (movie.poster_path || "/AdoSOsacA5MquZruWeBZVgQ7fSm.jpg") } alt="no"/>
+                   <div className="playbutton">
+                       <p className="playnow">Play Now</p>
+                       <i className="icon-play"></i>
+                   </div>
                </div>
                <h1 className="moviename">{movie.title || "Loading..."}</h1>
                <ul className="pagedetails">
@@ -60,8 +74,8 @@ class MoviePage extends React.Component {
                        renderStarIcon={() => <span>✮&nbsp;</span>}
                        editing={false}
                        starCount={5}
-                       value={Math.round((rating)/2)}/></li>
-                   <li className="score">{rating.toFixed(1)} IMDB</li>
+                       value={Math.round((movie.vote_average || 0)/2)}/></li>
+                   <li className="score">{(movie.vote_average || 0).toFixed(1)} IMDB</li>
                </ul>
                <div className="movieoverview">
                    <p className="overviewtitle">Overview</p>
@@ -70,7 +84,7 @@ class MoviePage extends React.Component {
                {this.state.cast[0] && <CastArray data={this.state.cast}/>}
                {this.state.similar[0] && <MovieArray name="similar" data={this.state.similar}/>}
            </div>
-
+           </DocumentTitle>
        )
    }
 
