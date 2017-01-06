@@ -15,7 +15,7 @@ class MoviePage extends React.Component {
         super(props)
 
         this.state = {movie : {}, id: "", cast: [], similar: []}
-        this.getData(this.props.params.id);
+
     }
 
 
@@ -23,9 +23,13 @@ class MoviePage extends React.Component {
         if(!this.props.params.id) {
             browserHistory.push(`/search`)
         }
+        this.getData(this.props.params.id);
     }
 
     componentWillReceiveProps(nextProps) {
+        if(!nextProps.params.id) {
+            browserHistory.push(`/search`)
+        }
         this.setState({movie : {}, id: "", cast: [], similar: []})
         this.getData(nextProps.params.id)
     }
@@ -105,7 +109,7 @@ class MoviePage extends React.Component {
                    <p className="overviewtext">{movie.overview}</p>
                </div>
                {this.state.cast[0] && <CastArray data={this.state.cast}/>}
-               <div className="moviecontainer"><p className="similarheading">SIMILAR</p> {this.state.similar[0] && <MovieArray data={this.state.similar}/>}</div>
+               {this.state.similar[0] && <div className="moviecontainer"><p className="similarheading">SIMILAR</p><MovieArray data={this.state.similar}/></div>}
            </div>
            </DocumentTitle>
        )

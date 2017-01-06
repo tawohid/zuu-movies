@@ -144,6 +144,7 @@ h6 {
   padding: 0;
   justify-content: space-around;
   list-style-type: none;
+  flex-wrap: wrap;
 }
 .movie-list .bgimg {
   position: absolute;
@@ -318,6 +319,7 @@ h6 {
   box-shadow: 0 2px 14px 0 rgba(0,0,0,0.5);
 }
 .playposter .playbutton {
+  cursor: pointer;
   display: flex;
   justify-content: center;
   align-content: center;
@@ -345,7 +347,7 @@ h6 {
   justify-content: flex-start;
   position: relative;
   list-style-type: none;
-  margin-top: -12%;
+  margin-top: -170px;
   margin-left: 19.3%;
   text-shadow: 0 1px 1px rgba(0,0,0,0.35);
 }
@@ -368,6 +370,7 @@ h6 {
   margin-top: 43px;
   box-shadow: 0 3px 21px 0 rgba(0,0,0,0.2);
   margin-left: 22%;
+  margin-bottom: 70px;
   width: 45%;
   padding: 0.5% 2%;
 }
@@ -447,4 +450,24 @@ h6 {
   transform: scale(-1, 1);
   padding-left: 10px;
   margin-top: 3px;
+}
+.searchinput {
+  font-family: Montserrat;
+  margin-right: auto;
+  color: #fff;
+  padding: 10px 10px 10px 5px;
+  display: block;
+  border: none;
+  width: 30%;
+  border-bottom: 2px solid #26d2cc;
+  background-color: transparent;
+  outline: none;
+}
+.searchinput::placeholder {
+  color: #fff;
+}
+.searchcover {
+  position: relative;
+  background: url("https://i.pi.gy/GeJv.png") no-repeat center center;
+  background-size: cover;
 }
