@@ -49,7 +49,7 @@ class Homepage extends React.Component {
 
     render() {
         return (
-            <DocumentTitle title="ZUU Movies | Watch Anything, Anywhere">
+            <DocumentTitle title="ZUU | Watch Anything, Anywhere">
             <div className="container">
 
                 <Cover/>
