@@ -1,9 +1,8 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
 import tmdb from '../tmdb';
 import DocumentTitle from 'react-document-title';
 import StarRatingComponent from 'react-star-rating-component';
-import Modal from 'boron/FadeModal'
+import Modal from 'boron/DropModal'
 
 import Header from './Header';
 import CastArray from './CastArray';
@@ -22,15 +21,6 @@ class MoviePage extends React.Component {
         this.setState({movie : {}, id: "", cast: [], similar: []})
         this.getData(nextProps.params.id)
     }
-
-    componentDidMount() {
-        ReactDOM.findDOMNode(this).addEventListener('nv-event', this._handleNVEvent);
-    }
-
-    componentWillUnmount() {
-        ReactDOM.findDOMNode(this).removeEventListener('nv-event', this._handleNVEvent);
-    }
-
 
     getData(id) {
         tmdb.call("/movie/" + id, {"append_to_response" : "videos,recommendations,credits"}, data => {
@@ -71,18 +61,18 @@ class MoviePage extends React.Component {
            <div className="moviepage">
                <Header back={true} />
                <div className="backdropbg">
-                   <img className="backdrop" src={"http://image.tmdb.org/t/p/w1280" + (movie.backdrop_path || "/ylEALgMyJu1JLzSQOIaGGNctHS0.jpg") } alt="no"/>
+                   <img className="backdrop" src={"https://image.tmdb.org/t/p/w1280" + (movie.backdrop_path || "/ylEALgMyJu1JLzSQOIaGGNctHS0.jpg") } alt="no"/>
                    <h1 className="moviename">{movie.title || "Loading..."}</h1>
                </div>
                <div className="playposter">
-                   <img className="movieposter" src={"http://image.tmdb.org/t/p/w185" + (movie.poster_path || "/AdoSOsacA5MquZruWeBZVgQ7fSm.jpg") } alt="no"/>
+                   <img className="movieposter" src={"https://image.tmdb.org/t/p/w185" + (movie.poster_path || "/AdoSOsacA5MquZruWeBZVgQ7fSm.jpg") } alt="no"/>
                    <div onClick={this.showModal.bind(this)} className="playbutton">
                        <p className="playnow">Play Now</p>
                        <i className="icon-play"></i>
                    </div>
                    <Modal ref="modal" backdropStyle={{backgroundColor: '#193240'}} modalStyle={{width: "90%", height: "90%"}}>
                        <div className="videocontainer">
-                           <iframe onClick src={`http://www.vidsourceapi.com/WebService.asmx/GetStreamEmbedUrlByIMDBID?apikey=X9qmIiQVesZYCxqM&imdbid=${id}&redirecton=true`} width="100%" height="743px"></iframe>
+                           <iframe src={`https://www.vidsourceapi.com/WebService.asmx/GetStreamEmbedUrlByIMDBID?apikey=X9qmIiQVesZYCxqM&imdbid=${id}&redirecton=true`} width="100%" height="743px"></iframe>
                        </div>
                    </Modal>
                </div>

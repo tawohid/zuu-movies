@@ -7,8 +7,8 @@ const Movie = props => {
     return (
         <li className="movie-item">
             <Link to={pagelink}>
-                <img className="bgimg" src={"http://image.tmdb.org/t/p/w185" + props.movie.poster_path} alt="no"/>
-                <img className="posterimg" src={"http://image.tmdb.org/t/p/w185" + props.movie.poster_path} alt="no"/>
+                <img className="bgimg" src={"https://image.tmdb.org/t/p/w185" + props.movie.poster_path} alt="no"/>
+                <img className="posterimg" src={"https://image.tmdb.org/t/p/w185" + props.movie.poster_path} alt="no"/>
 
                 <div className="movietitle">
                     <h6>{props.movie.title}</h6>

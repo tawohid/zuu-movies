@@ -11,10 +11,10 @@ const Popular = props => {
                 <h3>Popular Movies</h3>
             </div>
 
-            <img src={"http://image.tmdb.org/t/p/w1280" + props.data.backdrop_path} className="bgcover" alt="no"/>
+            <img src={"https://image.tmdb.org/t/p/w1280" + props.data.backdrop_path} className="bgcover" alt="no"/>
             <Link to={pagelink}>
             <div className="pinfo">
-                <img src={"http://image.tmdb.org/t/p/w185" + props.data.poster_path} className="poster" alt="no"/>
+                <img src={"https://image.tmdb.org/t/p/w185" + props.data.poster_path} className="poster" alt="no"/>
 
                 <div className="details">
                     <h2>{props.data.title}</h2> <span className="date">({props.data.release_date.split("-")[0]})</span>
