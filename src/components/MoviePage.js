@@ -1,7 +1,9 @@
 import React from 'react';
+import ReactDOM from 'react-dom';
 import tmdb from '../tmdb';
 import DocumentTitle from 'react-document-title';
 import StarRatingComponent from 'react-star-rating-component';
+import Modal from 'boron/FadeModal'
 
 import Header from './Header';
 import CastArray from './CastArray';
@@ -21,6 +23,14 @@ class MoviePage extends React.Component {
         this.getData(nextProps.params.id)
     }
 
+    componentDidMount() {
+        ReactDOM.findDOMNode(this).addEventListener('nv-event', this._handleNVEvent);
+    }
+
+    componentWillUnmount() {
+        ReactDOM.findDOMNode(this).removeEventListener('nv-event', this._handleNVEvent);
+    }
+
 
     getData(id) {
         tmdb.call("/movie/" + id, {"append_to_response" : "videos,recommendations,credits"}, data => {
@@ -35,18 +45,26 @@ class MoviePage extends React.Component {
         })
     }
 
+    showModal() {
+        this.refs.modal.show();
+    }
+
+    hideModal() {
+        this.refs.modal.hide();
+    }
 
 
     duration(a) {
-    let hours = Math.trunc(a/60);
-    let minutes = a % 60;
-    return hours +"h "+ minutes+"m";
-}
+        let hours = Math.trunc(a/60);
+        let minutes = a % 60;
+        return hours +"h "+ minutes+"m";
+    }
 
 
     render() {
        const movie = this.state.movie;
        const title = `${(movie.title) || "Movies"} | ZUU`
+       const id = this.state.id.replace("tt", "")
 
        return (
            <DocumentTitle title={title}>
@@ -58,10 +76,15 @@ class MoviePage extends React.Component {
                </div>
                <div className="playposter">
                    <img className="movieposter" src={"http://image.tmdb.org/t/p/w185" + (movie.poster_path || "/AdoSOsacA5MquZruWeBZVgQ7fSm.jpg") } alt="no"/>
-                   <div className="playbutton">
+                   <div onClick={this.showModal.bind(this)} className="playbutton">
                        <p className="playnow">Play Now</p>
                        <i className="icon-play"></i>
                    </div>
+                   <Modal ref="modal" backdropStyle={{backgroundColor: '#193240'}} modalStyle={{width: "90%", height: "90%"}}>
+                       <div className="videocontainer">
+                           <iframe onClick src={`http://www.vidsourceapi.com/WebService.asmx/GetStreamEmbedUrlByIMDBID?apikey=X9qmIiQVesZYCxqM&imdbid=${id}&redirecton=true`} width="100%" height="743px"></iframe>
+                       </div>
+                   </Modal>
                </div>
                <ul className="pagedetails">
                    <li className="dicon icon-date"></li>
