@@ -6,6 +6,7 @@ const CastArray = props => {
 
     return (
             <ul className="cast-list">
+                <p className="castheading">CAST</p>
                 {cast}
             </ul>
     )

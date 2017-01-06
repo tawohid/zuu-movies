@@ -24,7 +24,7 @@ class MoviePage extends React.Component {
 
     getData(id) {
         tmdb.call("/movie/" + id, {"append_to_response" : "videos,recommendations,credits"}, data => {
-            data.recommendations.results.splice(6)
+            data.recommendations.results.splice(5)
             data.credits.cast.splice(6)
 
             this.setState({
@@ -51,23 +51,24 @@ class MoviePage extends React.Component {
        return (
            <DocumentTitle title={title}>
            <div className="moviepage">
-               <Header />
-               <img className="backdrop" src={"http://image.tmdb.org/t/p/w1280" + (movie.backdrop_path || "/ylEALgMyJu1JLzSQOIaGGNctHS0.jpg") } alt="no"/>
-               <div className="backdropbg"></div>
+               <Header back={true} />
+               <div className="backdropbg">
+                   <img className="backdrop" src={"http://image.tmdb.org/t/p/w1280" + (movie.backdrop_path || "/ylEALgMyJu1JLzSQOIaGGNctHS0.jpg") } alt="no"/>
+                   <h1 className="moviename">{movie.title || "Loading..."}</h1>
+               </div>
                <div className="playposter">
-                   <img className="moiveposter" src={"http://image.tmdb.org/t/p/w185" + (movie.poster_path || "/AdoSOsacA5MquZruWeBZVgQ7fSm.jpg") } alt="no"/>
+                   <img className="movieposter" src={"http://image.tmdb.org/t/p/w185" + (movie.poster_path || "/AdoSOsacA5MquZruWeBZVgQ7fSm.jpg") } alt="no"/>
                    <div className="playbutton">
                        <p className="playnow">Play Now</p>
                        <i className="icon-play"></i>
                    </div>
                </div>
-               <h1 className="moviename">{movie.title || "Loading..."}</h1>
                <ul className="pagedetails">
                    <li className="dicon icon-date"></li>
-                   <li>{movie.release_date}</li>
+                   <li className="releasedate">{movie.release_date}</li>
                    <li className="dicon icon-duartion"></li>
                    <li>{this.duration(movie.runtime || 0)}</li>
-                   <li><StarRatingComponent
+                   <li className="startmdb"><StarRatingComponent
                        name="rating"
                        starColor="#26d2cc"
                        emptyStarColor="#193240"
@@ -82,7 +83,7 @@ class MoviePage extends React.Component {
                    <p className="overviewtext">{movie.overview}</p>
                </div>
                {this.state.cast[0] && <CastArray data={this.state.cast}/>}
-               {this.state.similar[0] && <MovieArray name="similar" data={this.state.similar}/>}
+               <div className="moviecontainer"><p className="similarheading">SIMILAR</p> {this.state.similar[0] && <MovieArray data={this.state.similar}/>}</div>
            </div>
            </DocumentTitle>
        )

@@ -13,6 +13,9 @@ a {
   color: inherit;
   text-decoration: inherit;
 }
+.active {
+  color: #26d2cc;
+}
 .cover {
   position: relative;
   background: url("http://i.pi.gy/GeJv.png") no-repeat center center;
@@ -147,7 +150,6 @@ h6 {
   z-index: -1;
   filter: blur(10px);
   transform: scale(1.05);
-  box-shadow: 0 32px 99px 0 rgba(0,0,0,0.17);
 }
 .movie-list .posterimg {
   height: 278px;
@@ -288,20 +290,161 @@ h6 {
   padding: 0;
   font-size: 0.5em;
 }
+.backdropbg {
+  height: 80vh;
+  margin-top: -17.3vh;
+  overflow: hidden;
+  background-image: linear-gradient(1deg, rgba(21,43,55,0.87) 0%, rgba(0,0,0,0) 67%, rgba(21,43,55,0.87) 100%);
+}
 .backdrop {
   position: relative;
-  height: 80vh;
   width: 100%;
-  transform: translateY(-17vh);
-  object-fit: cover;
   z-index: -3;
-  overflow: hidden;
 }
-.backdropbg {
+.moviename {
   position: absolute;
-  background-image: linear-gradient(1deg, rgba(21,43,55,0.87) 0%, rgba(0,0,0,0) 67%, rgba(21,43,55,0.87) 100%);
-  top: 0px;
-  z-index: -2;
-  height: 80vh;
-  width: 100%;
+  bottom: 18%;
+  left: 22%;
+  z-index: 2;
+  font-size: 60px;
+  color: #fff;
+  text-shadow: 0 4px 10px rgba(0,0,0,0.62);
+}
+.playposter {
+  margin-left: 7%;
+  margin-top: -10%;
+}
+.playposter .movieposter {
+  box-shadow: 0 2px 14px 0 rgba(0,0,0,0.5);
+}
+.playposter .playbutton {
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  align-items: center;
+  color: #fff;
+  background: #26d2cc;
+  box-shadow: 0 0 7px 0 rgba(0,0,0,0.28);
+  border-radius: 100px;
+  margin-left: 1px;
+  margin-top: 17px;
+  width: 184px;
+  height: 35px;
+}
+.playposter .playbutton .playnow {
+  font-size: 1em;
+  margin-bottom: 12px;
+}
+.playposter .playbutton .icon-play {
+  font-size: 0.9em;
+  margin-left: 10px;
+  margin-top: 5px;
+}
+.pagedetails {
+  display: flex;
+  justify-content: flex-start;
+  position: relative;
+  list-style-type: none;
+  margin-top: -12%;
+  margin-left: 19.3%;
+  text-shadow: 0 1px 1px rgba(0,0,0,0.35);
+}
+.pagedetails .dicon {
+  color: #26d2cc;
+  margin-right: 6px;
+}
+.pagedetails .releasedate {
+  padding-right: 30px;
+}
+.pagedetails .startmdb {
+  margin-left: auto;
+}
+.pagedetails .score {
+  padding-left: 10px;
+  padding-right: 70px;
+}
+.movieoverview {
+  background: #fff;
+  margin-top: 43px;
+  box-shadow: 0 3px 21px 0 rgba(0,0,0,0.2);
+  margin-left: 22%;
+  width: 45%;
+  padding: 0.5% 2%;
+}
+.movieoverview .overviewtitle {
+  font-size: 1.3em;
+  margin-bottom: 30px;
+}
+.movieoverview .overviewtext {
+  text-transform: none;
+  font-size: 1.1em;
+  font-weight: 100;
+  line-height: 30px;
+  padding-bottom: 28px;
+}
+.cast-list {
+  position: relative;
+  display: flex;
+  justify-content: space-around;
+  list-style-type: none;
+  width: 90%;
+  margin: 70px auto;
+  padding-top: 35px;
+  padding-bottom: 15px;
+  box-shadow: 0 2px 28px 0 rgba(0,0,0,0.16);
+}
+.cast-list .castheading {
+  position: absolute;
+  font-size: 1.6em;
+  top: -42px;
+  left: 25px;
+}
+.cast-list .cast-item {
+  width: 60%;
+  white-space: nowrap;
+  text-align: center;
+  text-transform: none;
+}
+.cast-list .cast-item .avatar {
+  box-shadow: 0 3px 13px 2px rgba(0,0,0,0.48);
+  border-radius: 100px;
+}
+.cast-list .cast-item .castname {
+  margin-top: 28px;
+  margin-bottom: 0;
+  line-height: 0px;
+}
+.cast-list .cast-item .castcharacter {
+  color: #26d2cc;
+  font-size: 0.9em;
+}
+.moviecontainer {
+  position: relative;
+  width: 92.9%;
+  padding-top: 36px;
+  padding-bottom: 36px;
+  margin: 70px auto;
+  box-shadow: 0 2px 28px 0 rgba(0,0,0,0.16);
+}
+.moviecontainer .similarheading {
+  position: absolute;
+  font-size: 1.6em;
+  top: -40px;
+  left: 25px;
+}
+.back {
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  align-items: center;
+  margin-right: auto;
+  font-size: 1.2em;
+  color: #26d2cc;
+  text-shadow: 0 2px 4px rgba(0,0,0,0.35);
+}
+.back .icon-play {
+  transform: scale(-1, 1);
+  padding-left: 10px;
+  margin-top: 3px;
 }

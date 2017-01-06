@@ -7,7 +7,7 @@ import Homepage from './components/Homepage'
 import MoviePage from './components/MoviePage'
 
 ReactDOM.render(
-    <Router history={browserHistory}>
+    <Router onUpdate={() => window.scrollTo(0, 0)} history={browserHistory}>
         <Route path="/" component={Homepage}/>
         <Route path="/movie/:id" component={MoviePage} />
     </Router>,

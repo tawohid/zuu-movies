@@ -1,5 +1,6 @@
 import React from 'react'
 import tmdb from '../tmdb'
+import DocumentTitle from 'react-document-title'
 
 import Cover from './Cover'
 import MovieArray from './MovieArray'
@@ -48,6 +49,7 @@ class Homepage extends React.Component {
 
     render() {
         return (
+            <DocumentTitle title="ZUU | Watch Anything, Anywhere">
             <div className="container">
 
                 <Cover/>
@@ -57,6 +59,7 @@ class Homepage extends React.Component {
 
 
             </div>
+            </DocumentTitle>
 
 
         );
