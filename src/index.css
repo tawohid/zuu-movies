@@ -14,7 +14,7 @@ a {
   text-decoration: inherit;
 }
 .active {
-  color: #26d2cc;
+  color: #26d2cc !important;
 }
 .cover {
   position: relative;

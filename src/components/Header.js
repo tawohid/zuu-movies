@@ -1,5 +1,5 @@
 import React from 'react';
-import {browserHistory} from "react-router";
+import {browserHistory, Link} from "react-router";
 
 const Header = props => {
     let topright;
@@ -14,9 +14,9 @@ const Header = props => {
     return (
             <ul className="header">
                 {topright}
-                <li className="icon icon-fire"></li>
-                <li className="icon icon-combined-shape"></li>
-                <li className="icon icon-search"></li>
+                <li><Link activeClassName="active" className="icon icon-fire" to="/"></Link></li>
+                <li><Link activeClassName="active" className="icon icon-combined-shape" to="/movie"></Link> </li>
+                <li><Link activeClassName="active" className="icon icon-search" to="/search"></Link></li>
                 <li className="signup">Sign Up</li>
             </ul>
     )

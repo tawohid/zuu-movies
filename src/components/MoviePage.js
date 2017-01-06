@@ -3,6 +3,7 @@ import tmdb from '../tmdb';
 import DocumentTitle from 'react-document-title';
 import StarRatingComponent from 'react-star-rating-component';
 import Modal from 'boron/DropModal'
+import { browserHistory } from 'react-router'
 
 import Header from './Header';
 import CastArray from './CastArray';
@@ -15,6 +16,13 @@ class MoviePage extends React.Component {
 
         this.state = {movie : {}, id: "", cast: [], similar: []}
         this.getData(this.props.params.id);
+    }
+
+
+    componentWillMount(){
+        if(!this.props.params.id) {
+            browserHistory.push(`/search`)
+        }
     }
 
     componentWillReceiveProps(nextProps) {
@@ -32,7 +40,7 @@ class MoviePage extends React.Component {
                 id : data.imdb_id,
                 cast: data.credits.cast,
                 similar: data.recommendations.results})
-        })
+        }, data => console.log(data))
     }
 
     showModal() {
@@ -57,6 +65,7 @@ class MoviePage extends React.Component {
        const id = this.state.id.replace("tt", "")
 
        return (
+
            <DocumentTitle title={title}>
            <div className="moviepage">
                <Header back={true} />

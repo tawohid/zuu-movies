@@ -5,11 +5,15 @@ import './index.css';
 
 import Homepage from './components/Homepage'
 import MoviePage from './components/MoviePage'
+import SearchPage from './components/SearchPage'
 
 ReactDOM.render(
     <Router onUpdate={() => window.scrollTo(0, 0)} history={browserHistory}>
         <Route path="/" component={Homepage}/>
-        <Route path="/movie/:id" component={MoviePage} />
+        <Route path="/movie" component={MoviePage} >
+            <Route path="/movie/:id" component={MoviePage}/>
+        </Route>
+        <Route path="/search" component={SearchPage} />
     </Router>,
   document.getElementById('root')
 );
