@@ -10,11 +10,17 @@ class SearchPage extends React.Component  {
     constructor(props) {
         super(props)
         this.state = {searchresults: []}
-        this.getData("Harry Potter")
+        this.getData("The")
     }
 
     getData(term) {
-        tmdb.call("/search/movie", {"query": term}, data => {
+        let query = term;
+
+        if (!query) {
+            query = "The"
+        }
+
+        tmdb.call("/search/movie", {"query": query, "include_adult": true}, data => {
             let results = [];
 
             data.results.map(movie => { // eslint-disable-line
@@ -24,7 +30,7 @@ class SearchPage extends React.Component  {
             })
 
             this.setState({searchresults: results})
-        })
+        }, data => console.log(data))
     }
 
 
@@ -38,7 +44,7 @@ class SearchPage extends React.Component  {
                         <Header search={true} onSearchTermChange={videoSearch}/>
                     </div>
 
-                    {this.state.searchresults[0] && <MovieArray data={this.state.searchresults}/>}
+                    {this.state.searchresults[0] && <MovieArray search={true} data={this.state.searchresults}/>}
 
                 </div>
             </DocumentTitle>

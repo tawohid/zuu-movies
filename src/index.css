@@ -144,7 +144,6 @@ h6 {
   padding: 0;
   justify-content: space-around;
   list-style-type: none;
-  flex-wrap: wrap;
 }
 .movie-list .bgimg {
   position: absolute;
@@ -470,4 +469,15 @@ h6 {
   position: relative;
   background: url("https://i.pi.gy/GeJv.png") no-repeat center center;
   background-size: cover;
+}
+.search-list {
+  width: 80%;
+  margin: 0 auto;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+}
+.search-list .movie-item {
+  margin-top: 10px;
+  margin-bottom: 30px;
+  margin-left: 30px;
 }
