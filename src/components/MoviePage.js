@@ -85,7 +85,7 @@ class MoviePage extends React.Component {
                    </div>
                    <Modal ref="modal" backdropStyle={{backgroundColor: '#193240'}} modalStyle={{width: "90%", height: "90%"}}>
                        <div className="videocontainer">
-                           <iframe src={`https://www.vidsourceapi.com/WebService.asmx/GetStreamEmbedUrlByIMDBID?apikey=X9qmIiQVesZYCxqM&imdbid=${id}&redirecton=true`} width="100%" height="743px"></iframe>
+                           <iframe style={{height: "90vh", border: "none"}} src={`https://www.vidsourceapi.com/WebService.asmx/GetStreamEmbedUrlByIMDBID?apikey=X9qmIiQVesZYCxqM&imdbid=${id}&redirecton=true`} width="100%"></iframe>
                        </div>
                    </Modal>
                </div>
