@@ -9,7 +9,6 @@ import MovieArray from './MovieArray'
 class SearchPage extends React.Component  {
     constructor(props) {
         super(props)
-
         this.state = {searchresults: []}
         this.getData("Harry Potter")
     }
