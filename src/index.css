@@ -277,20 +277,6 @@ h6 {
   margin-bottom: 50px;
   margin-top: 30px;
 }
-.footer {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background-color: #193240;
-  color: #fff;
-  height: 4vh;
-  width: 100%;
-}
-.footer h5 {
-  margin: 0;
-  padding: 0;
-  font-size: 0.5em;
-}
 .backdropbg {
   height: 80vh;
   margin-top: -18vh;
@@ -553,17 +539,23 @@ h6 {
 }
 @media screen and (max-width: 464px) {
   .movie-list {
-    width: 95%;
-    justify-content: flex-end;
+    width: 93%;
+    justify-content: center;
   }
   .movie-list .movie-item {
-    width: 50%;
+    transform: scale(0.87);
+    margin-bottom: 20px;
   }
   .pinfo {
     width: 100% !important;
   }
   .pinfo .overview {
     width: 90% !important;
+    margin-bottom: 10px !important;
+    font-size: 10px !important;
+  }
+  .pinfo h2 {
+    font-size: 1em !important;
   }
   .info {
     bottom: 5px !important;

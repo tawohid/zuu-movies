@@ -165,6 +165,7 @@ h6
     align(both)
     width: 44%
 
+
     .details
       column(2/3)
     .poster
@@ -211,21 +212,6 @@ h6
 .recommended
   margin-bottom: 50px
   margin-top: 30px
-
-
-.footer
-  display: flex
-  align-items: center;
-  justify-content: center;
-  background-color: dark
-  color: secondary
-  height: 4vh
-  width: 100%
-
-  h5
-    margin: 0
-    padding: 0
-    font-size: 0.5em
 
 
 
@@ -491,15 +477,20 @@ h6
 
 @media screen and (max-width: 464px)
   .movie-list
-    width: 95%
-    justify-content: flex-end
+    width: 93%
+    justify-content: center
     .movie-item
-      width: 50%
+      transform: scale(0.87)
+      margin-bottom: 20px
 
   .pinfo
     width: 100% !important
     .overview
       width: 90% !important
+      margin-bottom: 10px !important
+      font-size: 10px !important
+    h2
+      font-size: 1em !important
   .info
     bottom: 5px !important
 
