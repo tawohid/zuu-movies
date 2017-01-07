@@ -9,7 +9,7 @@ const MovieArray = props => {
     if (props.search) {
         isSearch = "search-list";
     } else {
-        isSearch = " ";
+        isSearch = "movie-list";
     }
 
 
@@ -17,7 +17,7 @@ const MovieArray = props => {
         <div className={props.name}>
             <h4>{props.name}</h4>
 
-            <ul className={"movie-list " + isSearch}>
+            <ul className={isSearch}>
                 {movies}
             </ul>
 

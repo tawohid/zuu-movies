@@ -26,11 +26,11 @@ class Homepage extends React.Component {
 
         tmdb.call("/discover/movie", {"with_genres": "12,18"}, data => {
             data.results.splice(6)
-            this.setState({listpopular: data.results, popular: data.results[0] })
+            this.setState({listpopular: data.results, popular: data.results[5] })
         })
     }
 
-    componentDidMount() {
+   componentDidMount() {
         let num = 1
 
         this.timerID = setInterval(() => {
