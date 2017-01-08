@@ -22,6 +22,7 @@ a {
   background-size: cover;
   height: 100vh;
   width: 100%;
+  transition: height 999999s;
 }
 .cover h1 {
   font-size: 4vw;
@@ -292,7 +293,7 @@ h6 {
 }
 .moviename {
   position: absolute;
-  bottom: 140px;
+  bottom: 150px;
   left: 320px;
   z-index: 2;
   font-size: 60px;
@@ -429,6 +430,7 @@ h6 {
   display: none;
 }
 .back {
+  margin-top: -15px;
   cursor: pointer;
   display: flex;
   justify-content: center;
@@ -698,6 +700,17 @@ h6 {
   }
 }
 @media screen and (max-width: 400px) {
+  .castname {
+    white-space: wrap;
+  }
+  .backdropbg {
+    height: 100vh;
+    margin-top: -30vh;
+  }
+  .playposter {
+    transform: scale(0.8);
+    margin-top: -70vh;
+  }
   .moviecontainer .movie-list {
     margin-left: 0px;
   }
@@ -706,5 +719,10 @@ h6 {
   }
   .cast-item {
     transform: scale(0.7);
+  }
+}
+@media screen and (max-width: 330px) {
+  .pagedetails {
+    visibility: hidden;
   }
 }

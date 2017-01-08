@@ -51,10 +51,6 @@ class MoviePage extends React.Component {
         this.refs.modal.show();
     }
 
-    hideModal() {
-        this.refs.modal.hide();
-    }
-
 
     duration(a) {
         let hours = Math.trunc(a/60);
