@@ -226,20 +226,23 @@ h6
   .backdrop
     position: relative
     width: 100%
+    height: 100%
+    object-fit: cover
+    overflow: hidden
     z-index: -3
 
    .moviename
      position: absolute
-     bottom: 18%
-     left: 22%
+     bottom: 140px
+     left: 320px
      z-index: 2
      font-size: 60px;
      color: secondary;
      text-shadow: 0 4px 10px rgba(0,0,0,0.62);
 
 .playposter
-  margin-left: 7%
-  margin-top: -10%
+  margin-left: 100px
+  margin-top: -145px
 
   .movieposter
     width: 185px
@@ -247,6 +250,7 @@ h6
     box-shadow: 0 2px 14px 0 rgba(0,0,0,0.50);
 
   .playbutton
+    position: relative
     cursor: pointer
     display: flex
     justify-content: center
@@ -275,9 +279,9 @@ h6
   justify-content: flex-start
   position: relative
   list-style-type: none;
-  margin-top: -12%
+  margin-top: -170px
   margin-bottom: 30px
-  margin-left: 19.3%
+  margin-left: 291px
   text-shadow: 0 1px 1px rgba(0, 0, 0, 0.35)
 
   .dicon
@@ -297,7 +301,7 @@ h6
 .movieoverview
   background: secondary;
   box-shadow: 0 3px 21px 0 rgba(0,0,0,0.20);
-  margin-left: 22%
+  margin-left: 320px
   margin-bottom: 70px
   width: 45%
   padding: 0.5% 2%
@@ -332,7 +336,6 @@ h6
 
   .cast-item
     width: 60%
-    white-space: nowrap
     text-align: center
     text-transform: none
 
@@ -342,6 +345,7 @@ h6
       border-radius: 100px;
 
     .castname
+      white-space: nowrap
       margin-top: 28px
       margin-bottom: 0
       line-height:0px
@@ -353,8 +357,7 @@ h6
 .moviecontainer
   position: relative
   width: 92.9%
-  padding-top: 36px
-  padding-bottom: 36px
+  padding: 36px 0
   margin: 70px auto
   box-shadow: 0 2px 28px 0 rgba(0,0,0,0.16);
 
@@ -363,14 +366,10 @@ h6
     font-size: 1.6em
     top: -40px
     left: 25px
+  .movie-item:nth-child(6)
+    display: none
 
-  .movie-list
-    display: flex
-    margin: 0;
-    padding: 0;
-    justify-content: space-around
-    list-style-type: none
-
+// Search Page
 .back
   cursor: pointer
   display: flex
@@ -421,6 +420,7 @@ h6
     margin-left: 30px
 
 
+// Hompeage Media Queries
 
 @media screen and (max-width: 1150px)
   .pinfo
@@ -523,3 +523,98 @@ h6
     -webkit-line-clamp: 3 !important
   .stars
     margin-left: 10px !important
+
+
+// Movie List Media Queries
+
+@media screen and (max-width: 1000px)
+  .movieoverview
+    width: 60%
+  .cast-item
+    transform: scale(0.8)
+    margin-left: -30px
+
+  .moviecontainer
+    padding: 10px 10px
+    .movie-item
+      transform: scale(0.87)
+
+@media screen and (max-width: 900px)
+  .moviename
+    bottom: 300px
+    font-size: 55px
+  .playposter
+    margin-top: -450px
+    margin-left: 100px
+  .pagedetails
+    color: #fff
+    margin-top: -30px
+    margin-bottom: -30px
+    font-size: 0.92em
+    .startmdb
+      margin-left: 30px
+  .movieoverview
+    margin: 0 auto
+    margin-top: 190px
+    width: 90%
+    .overviewtitle
+      padding-left: 10px
+    .overviewtext
+      padding-left: 10px
+      padding-right: 10px
+
+  .moviecontainer
+    .movie-list
+      justify-content: space-between
+     .movie-item:nth-child(3n-1)
+       margin: 0px 0px
+@media screen and (max-width: 800px)
+  .moviename
+    display: none
+  .playposter
+    width: 185px
+    margin: 0 auto
+    margin-top: -60vh
+    .playbutton
+      margin-top: -15px
+      width: 200px
+      margin-left: -5px
+
+  .pagedetails
+    margin: 0
+    margin-bottom: -150px
+    margin-top: 18px
+    margin-left: 50px
+    justify-content: center
+  
+  .cast-list
+    flex-wrap: wrap
+    .cast-item
+      width: 40% !important
+
+@media screen and (max-width: 554px)
+  .pagedetails
+    margin-left: 35px
+    font-size: 0.7em
+
+@media screen and (max-width: 500px)
+  .pagedetails
+    margin-left: -30px
+    .score
+      padding-right: 0
+
+
+  .moviecontainer
+    .movie-list
+     justify-content: flex-start
+    .movie-item
+      width: 50%
+
+@media screen and (max-width: 400px)
+  .moviecontainer
+    .movie-list
+      margin-left: 0px
+    .movie-item
+      transform: scale(0.7)
+  .cast-item
+    transform: scale(0.7)

@@ -36,7 +36,7 @@ class MoviePage extends React.Component {
 
     getData(id) {
         tmdb.call("/movie/" + id, {"append_to_response" : "videos,recommendations,credits"}, data => {
-            data.recommendations.results.splice(5)
+            data.recommendations.results.splice(6)
             data.credits.cast.splice(6)
 
             this.setState({
@@ -93,7 +93,7 @@ class MoviePage extends React.Component {
                    <li className="dicon icon-date"></li>
                    <li className="releasedate">{movie.release_date}</li>
                    <li className="dicon icon-duartion"></li>
-                   <li>{this.duration(movie.runtime || 0)}</li>
+                   <li className="runtime">{this.duration(movie.runtime || 0)}</li>
                    <li className="startmdb"><StarRatingComponent
                        name="rating"
                        starColor="#26d2cc"
