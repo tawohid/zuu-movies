@@ -296,7 +296,7 @@ h6 {
 }
 .moviename {
   position: absolute;
-  bottom: 150px;
+  bottom: 20vh;
   left: 320px;
   z-index: 2;
   font-size: 60px;

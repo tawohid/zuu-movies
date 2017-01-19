@@ -14,7 +14,7 @@ class MoviePage extends React.Component {
     constructor(props) {
         super(props)
 
-        this.state = {movie : {}, id: "", cast: [], similar: [], fullscreen: false}
+        this.state = {movie : {}, id: "", cast: [], similar: []}
 
     }
 
@@ -64,18 +64,6 @@ class MoviePage extends React.Component {
        const title = `${(movie.title) || "Movies"} | ZUU`
        const id = this.state.id.replace("tt", "")
 
-       let ifFullScreen = {
-           text: "Enter",
-           number : "90"
-       }
-
-       if (this.state.fullscreen) {
-           ifFullScreen = {
-               text: "Exit",
-               number: "100"
-           }
-       }
-
        return (
 
            <DocumentTitle title={title}>
@@ -91,19 +79,11 @@ class MoviePage extends React.Component {
                        <p className="playnow">Play Now</p>
                        <i className="icon-play"></i>
                    </div>
-                   <Modal ref="modal" backdropStyle={{backgroundColor: '#193240'}} modalStyle={{width: `${ifFullScreen.number}%`, height: `${ifFullScreen.number}%`}}>
+                   <Modal ref="modal" backdropStyle={{backgroundColor: '#193240'}} modalStyle={{width: "90%", height: "90%"}}>
                        <div className="videocontainer">
-                           <iframe style={{height: `${ifFullScreen.number}vh`, border: "none", zIndex: 3000}} src={`https://www.vidsourceapi.com/WebService.asmx/GetStreamEmbedUrlByIMDBID?apikey=X9qmIiQVesZYCxqM&imdbid=${id}&redirecton=true`} width="100%"></iframe>
+                           <iframe style={{height: "90vh", border: "none", zIndex: 3000}} src={`https://www.vidsourceapi.com/WebService.asmx/GetStreamEmbedUrlByIMDBID?apikey=X9qmIiQVesZYCxqM&imdbid=${id}&redirecton=true`} width="100%"></iframe>
                        </div>
-                       <div className="fullscreenbutton button" onClick={() => {
-
-                           if (this.state.fullscreen) {
-                            this.setState({fullscreen: false})
-                           } else {
-                               this.setState({fullscreen: true})
-                           }
-
-                       }}>{ifFullScreen.text} Fullscreen</div>
+                       <a className="fullscreenbutton button" href={`https://www.vidsourceapi.com/WebService.asmx/GetStreamEmbedUrlByIMDBID?apikey=X9qmIiQVesZYCxqM&imdbid=${id}&redirecton=true`}> Enter Fullscreen</a>
                    </Modal>
                </div>
                <ul className="pagedetails">
