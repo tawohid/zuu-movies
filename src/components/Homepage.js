@@ -1,6 +1,9 @@
 import React from 'react'
 import tmdb from '../tmdb'
 import DocumentTitle from 'react-document-title'
+import ScrollableAnchor from 'react-scrollable-anchor'
+import { configureAnchors } from 'react-scrollable-anchor'
+
 
 import Cover from './Cover'
 import MovieArray from './MovieArray'
@@ -48,14 +51,18 @@ class Homepage extends React.Component {
     }
 
     render() {
+        configureAnchors({offset: -60, scrollDuration: 800})
         return (
             <DocumentTitle title="ZUU | Watch Anything, Anywhere, Anytime">
             <div className="container">
-
                 <Cover/>
-                <MovieArray name="trending" data={this.state.trending}/>
+                <ScrollableAnchor id={'section1'}><div>
+                    <MovieArray name="trending" data={this.state.trending}/>
+                </div></ScrollableAnchor>
+
                 {this.state.listpopular[0] && <Popular data={this.state.popular}/>}
                 <MovieArray name="recommended" data={this.state.recommended}/>
+
 
 
             </div>

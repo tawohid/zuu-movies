@@ -16,6 +16,9 @@ a {
 .active {
   color: #26d2cc !important;
 }
+.signup {
+  cursor: pointer;
+}
 .cover {
   position: relative;
   background: url("https://i.pi.gy/GeJv.png") no-repeat center center;
@@ -523,6 +526,17 @@ form input::placeholder {
   width: 184px;
   height: 35px;
 }
+.fullscreenbutton {
+  z-index: 1000;
+  opacity: 0;
+  position: fixed;
+  transform: scale(0.8);
+  right: -18px;
+  bottom: 4px;
+}
+.fullscreenbutton:hover {
+  opacity: 0.8;
+}
 @media screen and (max-width: 1150px) {
   .pinfo {
     width: 55% !important;
@@ -744,6 +758,9 @@ form input::placeholder {
   }
 }
 @media screen and (max-width: 400px) {
+  .playbutton {
+    display: none !important;
+  }
   .castname {
     white-space: wrap;
   }

@@ -25,6 +25,8 @@ a
   color: primary !important
 
 // Homepage
+.signup
+  cursor: pointer
 
 .cover
   position: relative
@@ -467,6 +469,16 @@ form
     width: 184px
     height: 35px
 
+.fullscreenbutton
+  z-index: 1000
+  opacity: 0
+  position: fixed
+  transform: scale(0.8)
+  right: -18px
+  bottom: 4px
+
+.fullscreenbutton:hover
+  opacity: 0.8
 // Hompeage Media Queries
 
 @media screen and (max-width: 1150px)
@@ -658,6 +670,8 @@ form
       width: 50%
 
 @media screen and (max-width: 400px)
+  .playbutton
+    display: none !important
   .castname
     white-space: wrap
   .backdropbg
