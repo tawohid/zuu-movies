@@ -61,8 +61,8 @@ class MoviePage extends React.Component {
 
     render() {
        const movie = this.state.movie;
-       const title = `${(movie.title) || "Movies"} | ZUU`
-       const id = this.state.id.replace("tt", "")
+       const title = `${(movie.title) || "Movies"} | ZUU`;
+       const id = this.state.id;
 
        return (
 
@@ -81,9 +81,9 @@ class MoviePage extends React.Component {
                    </div>
                    <Modal ref="modal" backdropStyle={{backgroundColor: '#193240'}} modalStyle={{width: "90%", height: "90%"}}>
                        <div className="videocontainer">
-                           <iframe style={{height: "90vh", border: "none", zIndex: 3000}} src={`https://www.vidsourceapi.com/WebService.asmx/GetStreamEmbedUrlByIMDBID?apikey=X9qmIiQVesZYCxqM&imdbid=${id}&redirecton=true`} width="100%"></iframe>
+                           <iframe style={{height: "90vh", border: "none", zIndex: 3000}} src={`http://vodlocker.to/embed?i=${id}&poster=0&chromecast=0&trailer=0`} width="100%"></iframe>
                        </div>
-                       <a className="fullscreenbutton button" href={`https://www.vidsourceapi.com/WebService.asmx/GetStreamEmbedUrlByIMDBID?apikey=X9qmIiQVesZYCxqM&imdbid=${id}&redirecton=true`}> Enter Fullscreen</a>
+                       <a className="fullscreenbutton button" href={`http://vodlocker.to/embed?i=${id}&poster=0&chromecast=0&trailer=0`}> Enter Fullscreen</a>
                    </Modal>
                </div>
                <ul className="pagedetails">
