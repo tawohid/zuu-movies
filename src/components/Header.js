@@ -30,7 +30,7 @@ class Header extends React.Component  {
         } else if(this.props.search){
 
             topright = <input className="searchinput" type="text"
-                              placeholder="Search Anything..." onFocus={(e) => e.target.placeholder = ""}
+                              placeholder=process.env.API_KEY onFocus={(e) => e.target.placeholder = ""}
                               value={this.state.term}
                               onChange={e => {
                                   this.setState({term: e.target.value})
