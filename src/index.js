@@ -1,8 +1,9 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { Router, Route, browserHistory } from 'react-router'
+import './icons.css'
+import './bgimg.png';
 import './index.css';
-import bgimg from './bgimg.png';
 
 import Homepage from './components/Homepage'
 import MoviePage from './components/MoviePage'

@@ -9,6 +9,10 @@ class Header extends React.Component  {
         this.state = {term: ''};
     }
 
+    componentDidUpdate() {
+        this.props.onSearchTermChange(this.state.term)
+    }
+
     showModal() {
         this.refs.modal.show();
     }
@@ -34,7 +38,6 @@ class Header extends React.Component  {
                               value={this.state.term}
                               onChange={e => {
                                   this.setState({term: e.target.value})
-                                  this.props.onSearchTermChange(this.state.term)
                               }} />
 
         } else {

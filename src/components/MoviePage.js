@@ -90,7 +90,7 @@ class MoviePage extends React.Component {
                <ul className="pagedetails">
                    <li className="dicon icon-date"></li>
                    <li className="releasedate">{movie.release_date}</li>
-                   <li className="dicon icon-duartion"></li>
+                   <li className="dicon icon-duration"></li>
                    <li className="runtime">{this.duration(movie.runtime || 0)}</li>
                    <li className="startmdb"><StarRatingComponent
                        name="rating"

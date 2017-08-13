@@ -1,4 +1,4 @@
-
+@import url("./icons.css");
 @import url("https://fonts.googleapis.com/css?family=Montserrat:400,700");
 @import url("https://necolas.github.io/normalize.css/5.0.0/normalize.css");
 body {
@@ -21,7 +21,7 @@ a {
 }
 .cover {
   position: relative;
-  background: url(./bgimg.png) no-repeat center center;
+  background: url("./bgimg.png") no-repeat center center;
   background-size: cover;
   height: 100vh;
   width: 100%;
@@ -105,18 +105,15 @@ a {
   margin: 0;
 }
 .header .icon {
-  font-size: 2.5em;
+  font-size: 1.8em;
+  padding-left: 20px;
   color: #fff;
   text-shadow: 0 2px 4px rgba(0,0,0,0.35);
-}
-.header .icon-combined-shape {
-  padding-top: 1px;
-  font-size: 2.7em;
 }
 .header .signup {
   align-self: center;
   padding-bottom: 5px;
-  margin-top: -20px;
+  margin-top: -5px;
   margin-left: 30px;
   font-size: 1.2em;
   color: #fff;
