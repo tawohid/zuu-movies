@@ -113,7 +113,7 @@ a {
 .header .signup {
   align-self: center;
   padding-bottom: 5px;
-  margin-top: -5px;
+  margin-top: -9px;
   margin-left: 30px;
   font-size: 1.2em;
   color: #fff;
@@ -183,7 +183,7 @@ h6 {
   display: flex;
   align-content: center;
   justify-content: center;
-  height: 60px;
+  height: 47px;
   background: #fff;
   box-shadow: 0 2px 13px 0 rgba(0,0,0,0.5);
 }
@@ -296,7 +296,7 @@ h6 {
   bottom: 20vh;
   left: 320px;
   z-index: 2;
-  font-size: 60px;
+  font-size: 61px;
   color: #fff;
   text-shadow: 0 4px 10px rgba(0,0,0,0.62);
 }

@@ -27,7 +27,7 @@ class Homepage extends React.Component {
             this.setState({recommended: data.results.splice(4)})
         })
 
-        tmdb.call("/discover/movie", {"with_genres": "12,18"}, data => {
+        tmdb.call("/discover/movie", {"with_genres": "12"}, data => {
             data.results.splice(6)
             this.setState({listpopular: data.results, popular: data.results[5] })
         })
