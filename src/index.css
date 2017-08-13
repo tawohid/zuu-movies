@@ -21,7 +21,7 @@ a {
 }
 .cover {
   position: relative;
-  background: url("%PUBLIC_URL%/bgimg.png") no-repeat center center;
+  background: url(./bgimg.png) no-repeat center center;
   background-size: cover;
   height: 100vh;
   width: 100%;
