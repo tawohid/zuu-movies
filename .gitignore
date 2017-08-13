@@ -1,4 +1,5 @@
 # dependencies
 node_modules
 .idea/
+build
 /src/assets/
