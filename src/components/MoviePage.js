@@ -82,7 +82,7 @@ class MoviePage extends React.Component {
                    </div>
                    <Modal ref="modal" backdropStyle={{backgroundColor: '#193240'}} modalStyle={{width: "90%", height: "90%"}}>
                        <div className="videocontainer">
-                           <iframe style={{height: "90vh", border: "none", zIndex: 3000}} src={`https://vodlocker.to/embed?t=${movie.title}&y=${year}&poster=0&chromecast=0&trailer=0`} width="100%"></iframe>
+                           <iframe style={{height: "90vh", border: "none", zIndex: 3000}} src={`https://api.vodlocker.to/embed?t=${movie.title}&y=${year}&poster=0&chromecast=0&trailer=0`} width="100%"></iframe>
                        </div>
                        <a className="fullscreenbutton button" href={`https://api.vodlocker.to/embed?t=${movie.title}&y=${year}&poster=0&chromecast=0&trailer=0`}> Enter Fullscreen</a>
                    </Modal>
