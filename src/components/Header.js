@@ -48,8 +48,7 @@ class Header extends React.Component  {
             <div className="div">
             <ul className="header">
                 {topright}
-                <li><Link activeClassName="active" className="icon icon-fire" to="/"></Link></li>
-                <li><Link activeClassName="active" className="icon icon-combined-shape" to="/movie"></Link> </li>
+                <li><Link activeClassName="active" className="icon icon-combined-shape" to="/"></Link> </li>
                 <li><Link activeClassName="active" className="icon icon-search" to="/search"></Link></li>
                 <li className="signup" onClick={this.showModal.bind(this)}>Sign Up</li>
             </ul>
