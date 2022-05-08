@@ -62,7 +62,6 @@ class MoviePage extends React.Component {
     render() {
        const movie = this.state.movie;
        const title = `${(movie.title) || "Movies"} | ZUU`;
-       const year = (movie.release_date || '2017-01-01').split("-")[0];
 
 
        return (
